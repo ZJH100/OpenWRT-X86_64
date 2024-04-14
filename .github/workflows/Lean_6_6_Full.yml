@@ -66,6 +66,10 @@ jobs:
     - name: Update Feeds
       id: update
       run: |
+        cd ../
+        mv OpenWRT-X86_64 /mnt/
+        ln -s /mnt/OpenWRT-X86_64 $(pwd)/OpenWRT-X86_64
+        cd OpenWRT-X86_64
         cd openwrt
         echo "OPENWRTROOT=$PWD" >> $GITHUB_ENV
         echo "OPENWRTROOT=$PWD" >> $GITHUB_OUTPUT
