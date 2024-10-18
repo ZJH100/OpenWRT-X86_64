@@ -22,7 +22,7 @@ rm -rf ../../customfeeds/packages/multimedia/aliyundrive-webdav
 
 # Add openwrt-packages
 git clone --depth=1 https://github.com/xuanranran/openwrt-packages openwrt-package
-git clone --depth=1 https://github.com/xuanranran/rely
+git clone --depth=1 https://github.com/xuanranran/rely openwrt-rely
 rm -rf openwrt-package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 rm -rf openwrt-package/luci-theme-design/htdocs/luci-static/design/favicon.ico
 cp -f $GITHUB_WORKSPACE/data/bg1.jpg openwrt-package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
@@ -57,8 +57,8 @@ sed -i 's/os.date()/os.date("%F %T %a")/g' package/lean/autocore/files/*/index.h
 sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
 
 # 修改开源站地址
-sed -i 's/mirror.iscas.ac.cn/mirrors.mit.edu/g' scripts/download.pl
-sed -i 's/mirrors.aliyun.com/mirror.netcologne.de/g' scripts/download.pl
+# sed -i 's/mirror.iscas.ac.cn/mirrors.mit.edu/g' scripts/download.pl
+# sed -i 's/mirrors.aliyun.com/mirror.netcologne.de/g' scripts/download.pl
 
 # sed -i 's/+firewall/+uci-firewall/g' customfeeds/luci/applications/luci-app-firewall/Makefile
 

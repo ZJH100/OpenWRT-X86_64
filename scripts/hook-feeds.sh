@@ -7,14 +7,16 @@ pushd customfeeds/luci
 export luci_feed="$(pwd)"
 popd
 # rm -rf config/Config-kernel.in
-rm -rf package/kernel/linux/modules/netsupport.mk
 # rm -rf package/kernel/linux/modules/video.mk
+rm -rf package/kernel/linux/modules/netsupport.mk
 rm -rf toolchain/gcc/*
-rm -rf package/libs/elfutils
+# rm -rf package/libs/elfutils
+# rm -rf tools/elfutils
 rm -rf package/network/utils/uqmi
 rm -rf customfeeds/packages/lang/node/*
 rm -rf customfeeds/packages/lang/node-yarn/*
 rm -rf customfeeds/packages/net/nginx-util/*
+rm -rf customfeeds/packages/net/{*alist,chinadns-ng,dns2socks,dns2tcp,lucky,sing-box}
 
 # Update GCC 13.3.0
 pushd toolchain/gcc/
@@ -42,17 +44,25 @@ git clone https://github.com/sbwml/packages_lang_golang customfeeds/packages/lan
 # git clone https://github.com/sbwml/packages_lang_golang -b 23.x customfeeds/packages/lang/golang
 
 # Update dnsmasq
-rm -rf package/network/services/dnsmasq/*
-pushd package/network/services/dnsmasq/
-git clone --depth 1 https://github.com/immortalwrt/immortalwrt immortalwrt && mv -n immortalwrt/package/network/services/dnsmasq/* ./ ; rm -rf immortalwrt
-popd
+# rm -rf package/network/services/dnsmasq/*
+# pushd package/network/services/dnsmasq/
+# git clone --depth 1 https://github.com/immortalwrt/immortalwrt immortalwrt && mv -n immortalwrt/package/network/services/dnsmasq/* ./ ; rm -rf immortalwrt
+# popd
+
+# Update rust
+# rm -rf customfeeds/packages/lang/rust/*
+# pushd customfeeds/packages/lang/rust/
+# git clone --depth 1 https://github.com/immortalwrt/packages rust && mv -n rust/lang/rust/* ./ ; rm -rf rust
+# popd
 
 # cp -r $GITHUB_WORKSPACE/data/package/kernel/linux/modules/video.mk package/kernel/linux/modules/video.mk
 # cp -r $GITHUB_WORKSPACE/data/config/Config-kernel.in config/Config-kernel.in
 cp -r $GITHUB_WORKSPACE/data/package/kernel/linux/modules/netsupport.mk package/kernel/linux/modules/netsupport.mk
+cp -r $GITHUB_WORKSPACE/data/package/network/utils/bpftool package/network/utils/bpftool
 cp -r $GITHUB_WORKSPACE/data/package/network/utils/uqmi package/network/utils/uqmi
 cp -r $GITHUB_WORKSPACE/data/xdp-tools package/network/utils/xdp-tools
-cp -r $GITHUB_WORKSPACE/data/package/libs/elfutils package/libs/elfutils
+# cp -r $GITHUB_WORKSPACE/data/package/libs/elfutils package/libs/elfutils
+# cp -r $GITHUB_WORKSPACE/data/tools/elfutils tools/elfutils
 sed -i '/src-git packages/d' feeds.conf.default
 echo "src-link packages $packages_feed" >> feeds.conf.default
 sed -i '/src-git luci/d' feeds.conf.default
