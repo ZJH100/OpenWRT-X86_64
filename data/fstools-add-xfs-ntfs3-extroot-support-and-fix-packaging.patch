@@ -1,7 +1,7 @@
 From f4fce0ba4e7c95b7cf61320b21e53d119f115181 Mon Sep 17 00:00:00 2001
 From: Lovin Yarn <juanshengyuan@gmail.com>
 Date: Tue, 11 Nov 2025 04:03:52 +0800
-Subject: [PATCH] 1
+Subject: [PATCH 1/2] 1
 
 ---
  Makefile                                      |  16 +-
@@ -671,3 +671,26 @@ index 0000000..4548380
 + 		return -1;
 + 	}
 + 
+
+From 3e5b0337c300bcbdce72b5c09a0992350cedc05f Mon Sep 17 00:00:00 2001
+From: Lovin Yarn <juanshengyuan@gmail.com>
+Date: Tue, 11 Nov 2025 04:10:11 +0800
+Subject: [PATCH 2/2] Update Makefile
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index cb79a09..f483199 100644
+--- a/Makefile
++++ b/Makefile
+@@ -89,7 +89,7 @@ define Package/blockd
+   SECTION:=base
+   CATEGORY:=Base system
+   TITLE:=Block device automounting
+-  DEPENDS:=+block-mount +fstools +libubus +kmod-fs-autofs4 +libblobmsg-json +libjson-c
++  DEPENDS:=+block-mount +fstools +libubus +kmod-fs-autofs4 +libblobmsg-json +libjson-c +fstools
+ endef
+ 
+ define Package/fstools/install
