@@ -1,7 +1,7 @@
-From f4fce0ba4e7c95b7cf61320b21e53d119f115181 Mon Sep 17 00:00:00 2001
+From 9f2b1d8060746f64e3f7e32e9fb04cafa20527e9 Mon Sep 17 00:00:00 2001
 From: Lovin Yarn <juanshengyuan@gmail.com>
-Date: Tue, 11 Nov 2025 04:10:11 +0800
-Subject: [PATCH] fstools: add xfs-ntfs3-extroot support and fix packaging
+Date: Tue, 11 Nov 2025 04:33:40 +0800
+Subject: [PATCH] 1
 
 ---
  Makefile                                      |  18 +-
@@ -21,7 +21,7 @@ diff --git a/Makefile b/Makefile
 index 7a31673..f483199 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -89,7 +89,7 @@ define Package/blockd
+@@ -89,16 +89,20 @@ define Package/blockd
    SECTION:=base
    CATEGORY:=Base system
    TITLE:=Block device automounting
@@ -675,4 +675,4 @@ index 0000000..4548380
 ++		//ULOG_ERR("no usable configuration\n");
 + 		return -1;
 + 	}
-+
++ 
